@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign In</title>
+</head>
+<body>
+      <h2 class="mt-20 text-center text-3xl font-extrabold text-gray-900">
+        Sign in to your account
+      </h2>
+      <form action="/j_security_check" method="POST">
+        <div>
+          <label for="userName" class="sr-only">User Name</label>
+          <input id="userName" name="j_username" type="text" autocomplete="username" required="" placeholder="Username" />
+        </div>
+        <div>
+          <label for="password" class="sr-only">Password</label>
+          <input id="password" name="j_password" type="password" autocomplete="current-password" required="" placeholder="Password" />
+        </div>
+        <div>
+          <button>
+            Sign in
+          </button>
+        </div>
+      </form>
+</body>
+</html>
