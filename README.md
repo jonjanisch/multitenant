@@ -1,5 +1,31 @@
 # multitenant Project
 
+Requires a basic MySQL database with two tables:
+
+```
+CREATE TABLE `sys_user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(45) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+```
+
+```
+CREATE TABLE `sys_user_role` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `role` varchar(45) NOT NULL,
+  `sys_user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_ROLE_USER_idx` (`sys_user_id`),
+  CONSTRAINT `FK_SysUser_SysUserRole` FOREIGN KEY (`sys_user_id`) REFERENCES `sys_user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+```
+
+
+
+
+
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
